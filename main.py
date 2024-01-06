@@ -23,10 +23,9 @@ def looksupBook():
     result = result + f"Author: {book['Author']}\n"
     result = result + f"Num Of Pages: {book['Num Pages']}"
     bookResult.insert(INSERT,result+'\n')
-    
-def studentSearch():
     studentId = int(studentIdEntry.get())
     student = students[studentId]
+    bookResult.insert(INSERT, 'Student: ')
     bookResult.insert(INSERT, student+'\n')
     
 window = Tk()
@@ -37,14 +36,11 @@ lbl.grid()
 
 bookISBN = Entry(window, width=20)
 bookISBN.grid(column=1,row=0)
-btnSearch = Button(window, text='Search Book', command = looksupBook, width=15)
-btnSearch.grid(column=2, row=0, padx=15)
-
 stuLabel = Label(window, text= "Enter Student ID: ", width=20, anchor='e')
 stuLabel.grid(column=0, row=1, sticky='E')
 studentIdEntry = Entry(window, width=20)
 studentIdEntry.grid(column=1, row= 1)
-studentButton = Button(window, text= 'Search Student', command=studentSearch,  width=15)
+studentButton = Button(window, text= 'Search', command=looksupBook,  width=8)
 studentButton.grid(column=2, row=1)
 
 
