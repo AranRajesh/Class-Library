@@ -1,0 +1,3 @@
++ Write the checkouts to a file once the user tells us the ISBN and Student ID
++ Find a way to delete checkouts from the log once returned
++ Add barcode scanning (maybe)
