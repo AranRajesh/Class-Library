@@ -40,7 +40,7 @@ def checkoutBook():
 
 window = Tk()
 window.title ("Library - 4th/5th Quest (Ms.Gale's class)!")
-window.geometry('510x280')
+window.geometry('510x320')
 lbl = Label (window, text = "Enter ISBN:", width=20, anchor='e')
 lbl.grid()
 
