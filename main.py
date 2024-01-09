@@ -1,5 +1,6 @@
 from tkinter import *
 import csv
+from datetime import datetime
 
 books = {}
 students = {}
@@ -27,7 +28,16 @@ def looksupBook():
     student = students[studentId]
     bookResult.insert(INSERT, 'Student: ')
     bookResult.insert(INSERT, student+'\n')
-    
+
+def checkoutBook():
+    currentDate = datetime.today().strftime('%Y-%m-%d')
+    Checkouttext= bookResult.get("1.0",'end-1c')
+
+    with open ('test.txt', "a") as checkoutFile:
+        checkoutFile.write(str(Checkouttext) + "Date: " + currentDate+"\n")
+    bookResult.delete('1.0', END)
+    Checkouttext = None
+
 window = Tk()
 window.title ("Library - 4th/5th Quest (Ms.Gale's class)!")
 window.geometry('510x280')
@@ -43,6 +53,7 @@ studentIdEntry.grid(column=1, row= 1)
 studentButton = Button(window, text= 'Search', command=looksupBook,  width=8)
 studentButton.grid(column=2, row=1)
 
+checkoutButton = Button(window, text= 'Checkout', command=checkoutBook,width= 10).grid(column=1, row=5)
 
 bookResult = Text(window, width=60, height=10)
 bookResult.grid(column=0, columnspan=3, row=2, pady=25)
